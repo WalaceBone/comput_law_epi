@@ -1,0 +1,12 @@
+FROM node:13-alpine
+
+WORKDIR /usr/src/web
+
+COPY ./package* /usr/src/web/
+RUN npm install
+RUN npm install -g @angular/cli@latest
+
+COPY . /usr/src/web
+EXPOSE 4200
+
+CMD ["ng",  "serve", "--host", "0.0.0.0"]
