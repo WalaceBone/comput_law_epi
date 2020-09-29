@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 
 // Providers
 import { CookieService } from 'ngx-cookie-service';
@@ -21,7 +21,7 @@ import {ChartsModule} from 'ng2-charts';
 const config: SocketIoConfig = { url: environment.apiUrl, options: {} };
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +33,7 @@ const config: SocketIoConfig = { url: environment.apiUrl, options: {} };
     ReactiveFormsModule,
     AppRoutingModule,
     NgbModule,
-    NgMultiSelectDropDownModule,
+    NgMultiSelectDropDownModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

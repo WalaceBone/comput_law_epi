@@ -32,8 +32,6 @@
     "ng-multiselect-dropdown": "^0.2.10",
     "ng2-charts": "^2.3.2",
     "ngx-cookie-service": "^3.0.4",
-    "ngx-socket-io": "^3.0.1",
-    "phaser": "^3.23.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "webpack": "^4.43.0",

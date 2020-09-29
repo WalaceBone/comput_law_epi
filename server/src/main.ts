@@ -16,16 +16,6 @@ async function bootstrap() {
       .addBearerAuth()
       .build()
 
-  app.useStaticAssets(join(__dirname, '../assets/uploads'), {
-    index: false,
-    redirect: false
-  });
-
-  app.useStaticAssets(join(__dirname, '../assets/games'), {
-    index: false,
-    redirect: false
-  });
-
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('doc', app, document);
   app.useWebSocketAdapter(new IoAdapter(app));

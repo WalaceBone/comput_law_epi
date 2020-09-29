@@ -1,4 +1,4 @@
-# comput_law_epi
+# Comput_Law_2020
 
 This is the repository of the Comput law project.
 
