@@ -28,8 +28,10 @@ npm start
 # Information
 
 The API and Worker uses the [server](./server) folder to be build.
+http://localhost:8080/doc/#/
 
 The WEB front uses the [web](./web) folder to be build.
+
 
 # Authors
 * [Charlie Jeanneau](https://github.com/JeSuisCharlie1)
