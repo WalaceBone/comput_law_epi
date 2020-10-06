@@ -35,3 +35,5 @@ http://localhost:8081/
 
 # Authors
 * [Charlie Jeanneau](https://github.com/JeSuisCharlie1)
+* [Hugo Beaupel](https://github.com/WalaceBone)
+* [Guillaume Assfeld](https://github.com/Assgui)

@@ -1,7 +1,6 @@
 import * as request from 'supertest';
 import {setup, teardown} from "../jest.utils";
 import * as jwt from 'jsonwebtoken';
-import { async } from 'rxjs/internal/scheduler/async';
 
 beforeAll(setup, 60000)
 
