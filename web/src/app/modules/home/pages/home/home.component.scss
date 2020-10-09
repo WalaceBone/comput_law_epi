@@ -1,0 +1,45 @@
+.container {
+  position: relative;
+  text-align: center;
+}
+
+.hero-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  filter: brightness(50%);
+}
+
+.hero-text {
+  padding-top: 30vh;
+  left: 0;
+  line-height: 200px;
+  margin-top: -100px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  width: 100%;
+}
+
+.title {
+  color: aliceblue;
+  font-size: 4vw;
+}
+
+.subtitle {
+  color: aliceblue;
+  font-size: 3vw;
+}
