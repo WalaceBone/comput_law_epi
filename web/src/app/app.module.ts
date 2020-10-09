@@ -30,11 +30,11 @@ import {ChartsModule} from 'ng2-charts';
     ChartsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgbModule,
+    NgMultiSelectDropDownModule,
     AppRoutingModule,
     AuthModule,
-    NgbModule,
     HomeModule,
-    NgMultiSelectDropDownModule,
   ],
   providers: [CookieService, { provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true }],
   bootstrap: [AppComponent]
