@@ -1,20 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { UnsignedGuard } from '../../core/guards/unsigned.guard';
-import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { AuthGuard } from 'src/app/core/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'menu',
     component: HomeComponent,
-    pathMatch: 'full',
-    canActivate: [UnsignedGuard],
-  },
-  {
-    path: '**',
-    component: PageNotFoundComponent,
-  },
+    canActivate: [AuthGuard],
+  }
 ];
 
 @NgModule({
