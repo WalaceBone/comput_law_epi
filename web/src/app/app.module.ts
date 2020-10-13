@@ -18,6 +18,10 @@ import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {ChartsModule} from 'ng2-charts';
+import { MenuModule } from './modules/menu/menu.module';
+import { RulesModule } from './modules/rules/rules.module';
+import { QuestionnaireModule } from './modules/questionnaire/questionnaire.module';
+import { ProfileModule } from './modules/profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import {ChartsModule} from 'ng2-charts';
     NgMultiSelectDropDownModule,
     AppRoutingModule,
     AuthModule,
-    HomeModule,
+    MenuModule,
+    RulesModule,
+    QuestionnaireModule,
+    ProfileModule,
+    HomeModule
   ],
   providers: [CookieService, { provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true }],
   bootstrap: [AppComponent]

@@ -1,0 +1,50 @@
+.main {
+  min-height: 75vh;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  padding-top: 100px;
+  font-weight: bold;
+}
+
+.button {
+  max-width: 50%;
+}
+
+.btn-signedOut {
+  font-size: 35px;
+  float: right;
+  padding-right: 40px;
+}
+
+.btn-light {
+  width: 20vw;
+  height: 12vw;
+  min-width: 220px;
+  min-height: 150px;
+  box-shadow: 0px 10px 26px -1px rgba(0,0,0,0.14);
+  font-size: 30px;
+}
+
+.button-wrapper {
+  padding-top: 120px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 100px;
+}
+
+@media screen and (max-width: 800px) {
+  .button-wrapper {
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+    margin: auto;
+    padding-top: 100px;
+  }
+  .btn-light {
+    margin-top: 50px;
+  }
+}

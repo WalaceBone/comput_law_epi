@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ChoiceComponent } from './pages/choice/choice.component';
+import { RulesComponent } from './pages/rules/rules.component';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'menu',
-    component: ChoiceComponent,
+    path: 'rules',
+    component: RulesComponent,
     canActivate: [AuthGuard]
   }
 ];
@@ -15,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MenuRoutingModule { }
+export class RulesRoutingModule { }

@@ -1,1 +1,26 @@
-<p>choice works!</p>
+<button type="button" class="btn btn-signedOut" [routerLink]="''" (click)="auth.signOut()">
+  <i class="fas fa-sign-out-alt"></i>
+</button>
+<div class="main">
+  <p class="title">Comput Law Menu</p>
+  <div class="button-wrapper">
+    <div class="button">
+      <button type="button" class="btn btn-light" [routerLink]="'/questionnaire'">
+        <p>British citizen questionnaire</p>
+        <i class="fas fa-question"></i>
+      </button>
+    </div>
+    <div class="button">
+      <button type="button" class="btn btn-light" [routerLink]="'/rules'">
+        <p>Rules</p>
+        <i class="fas fa-pencil-ruler"></i>
+      </button>
+    </div>
+    <div class="button">
+      <button type="button" class="btn btn-light" [routerLink]="'/profile'">
+        <p>Profile</p>
+        <i class="fas fa-user"></i>
+      </button>
+    </div>
+  </div>
+</div>

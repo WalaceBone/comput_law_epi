@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ChoiceComponent } from './pages/choice/choice.component';
+import { QuestionnaireComponent } from './pages/questionnaire/questionnaire.component';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'menu',
-    component: ChoiceComponent,
+    path: 'questionnaire',
+    component: QuestionnaireComponent,
     canActivate: [AuthGuard]
   }
 ];
@@ -15,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MenuRoutingModule { }
+export class QuestionnaireRoutingModule { }
