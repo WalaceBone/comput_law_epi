@@ -28,7 +28,7 @@
         [ngClass]="{ 'is-invalid': submitted && frm.controls.password.errors }"
         formControlName="password"
         id="inputPassword"
-        placeholder="password"
+        placeholder="Password"
       />
       <div
         *ngIf="submitted && frm.controls.password.errors"
@@ -43,4 +43,7 @@
       Login
     </button>
   </form>
+  <button type="text" class="btn" [routerLink]="'/register'">
+    Not register yet ?
+  </button>
 </div>
