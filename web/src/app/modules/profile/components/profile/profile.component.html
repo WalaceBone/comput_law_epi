@@ -1,1 +1,68 @@
-<p>profile works!</p>
+<div class="main">
+  <p class="title">Profile</p>
+  <form [formGroup]="frmUsername" class="profile-field">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="username"
+        id="username"
+        [value]=this.user.username
+      />
+    </div>
+    <div class="error" *ngIf="hasFailedUsername && errorMessage">
+      {{errorMessage}}
+    </div>
+    <div class="success" *ngIf="successUsername">
+      Username changed
+    </div>
+    <button
+    type="submit"
+    class="btn btn-primary submit-button right"
+    (click)="changeUsername()
+    ">
+      Modified Username
+    </button>
+  </form>
+
+  <br>
+
+  <form [formGroup]="frm" class="password-field">
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="newPassword"
+      id="newPassword"
+      placeholder="New Password"
+    />
+    <br>
+    <input
+    type="text"
+    class="form-control"
+    formControlName="newPasswordConfirm"
+    id="newPasswordConfirm"
+    placeholder="New Password Confirmation"
+    />
+    <div class="error" *ngIf="((frm.get('newPassword').value !== frm.get('newPasswordConfirmation').value) && frm.get('newPassword').value !== '')">
+      Passwords don't match
+    </div>
+    <div class="error" *ngIf="hasFailed && errorMessage">
+      {{errorMessage}}
+    </div>
+    <div class="success" *ngIf="success">
+      Password changed
+    </div>
+    </div>
+    <button
+    type="submit"
+    class="btn btn-primary submit-button right"
+    (click)="changePassword()
+    ">
+      Modified Password
+    </button>
+  </form>
+
+</div>

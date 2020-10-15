@@ -45,4 +45,32 @@ export class ApiService {
       .pipe(map((res) => res as SignInResponse))
       .pipe(catchError(ApiService.handleError));
   }
+
+  /* PROFILE API CALL */
+
+  public getProfile(): Observable<User> {
+    return this.http
+      .get(`${API_URL}/user/me`, { headers: this.getHeaders() })
+      .pipe(map((res) => new User(res)))
+      .pipe(catchError(ApiService.handleError));
+  }
+
+  public modifyProfile(payload: object): Observable<User> {
+    return this.http
+      .patch(`${API_URL}/user/me`, payload, { headers: this.getHeaders() })
+      .pipe(map((res) => new User(res)))
+      .pipe(catchError(ApiService.handleError));
+  }
+
+  public deleteProfile() {
+    return this.http
+      .delete(`${API_URL}/user/me`, { headers: this.getHeaders() })
+      .pipe(map((res) => res))
+      .pipe(catchError(ApiService.handleError));
+  }
+
+  private getHeaders(): { Authorization: string } {
+    return { Authorization: `Bearer ${this.session.accessToken}` };
+  }
+
 }
