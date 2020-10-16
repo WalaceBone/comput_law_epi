@@ -3,6 +3,7 @@ import { User } from 'src/app/models/user.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/core/api/api.service';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -24,7 +25,7 @@ export class ProfileComponent implements OnInit {
   public successUsername: boolean;
 
   constructor(private api: ApiService, private fb: FormBuilder,
-              private auth: AuthService)
+              private auth: AuthService, private router: Router)
     {
       this.frm = fb.group({
         newPassword: [''],
@@ -61,6 +62,18 @@ export class ProfileComponent implements OnInit {
           this.hasFailedUsername = true;
           this.errorMessage = error;
         });
+  }
+
+  deleteUser() {
+    this.api
+      .deleteProfile()
+      .subscribe((res) => {
+        this.router.navigate(['/']);
+      },
+      (error) => {
+        console.log('error when delete profile');
+      });
+
   }
 
   changePassword() {

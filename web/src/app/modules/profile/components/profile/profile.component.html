@@ -1,5 +1,8 @@
-<div class="main">
-  <p class="title">Profile</p>
+<button type="button" class="btn btn-return" [routerLink]="'/menu'">
+  <i class="fas fa-arrow-left"></i>
+</button>
+<div class="main container">
+  <p class="profile-text">Profile</p>
   <form [formGroup]="frmUsername" class="profile-field">
     <div class="form-group">
       <label for="username">Username</label>
@@ -64,5 +67,7 @@
       Modified Password
     </button>
   </form>
-
+  <button type="button" class="btn" (click)="deleteUser()">
+    <i class="fas fa-trash-alt"></i>
+  </button>
 </div>
