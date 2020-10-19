@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import {MongooseModule} from "@nestjs/mongoose";
+import { LawModule } from './law/law.module';
 
 export function getMongoUrl(): string {
   let mongodbUrl = "mongodb://";
@@ -39,6 +40,7 @@ export function getMongoUrl(): string {
       }),
       AuthModule,
       UsersModule,
+      LawModule,
   ],
   controllers: [AppController],
   providers: [AppService]
