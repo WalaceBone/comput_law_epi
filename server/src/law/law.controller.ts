@@ -1,16 +1,26 @@
-import { Controller, Post, UseGuards, Req, Body } from '@nestjs/common';
+import { Controller, Post, UseGuards, Req, Body, Get } from '@nestjs/common';
 import { ApiTags, ApiBearerAuth, ApiUnauthorizedResponse, ApiOkResponse } from '@nestjs/swagger';
 import { LawService } from './law.service';
 import ErrorDto from 'src/dto/error.dto';
 import { MessageResponseDto } from 'src/dto/messageReponse.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { lawForm } from './interface/law.interface';
+import EligibleTerritoryDto from 'src/dto/eligibleTerriory.dto';
+import { EligibleTerritory } from 'src/globals/eligibleTerrioty.enum';
 
 @ApiTags('law')
 @Controller('law')
 export class LawController {
 
     constructor(private readonly lawService: LawService) {}
+
+    @Get('/eligibleTerrotory')
+    @ApiOkResponse({ type: EligibleTerritoryDto })
+    async getEligibleTerritory() {
+        return {
+            territory: Object.keys(EligibleTerritory).map(key => EligibleTerritory[key as any])
+        }
+    }
 
     @Post('/britishCitizenTest')
     @ApiBearerAuth()
