@@ -14,7 +14,7 @@ export class LawController {
 
     constructor(private readonly lawService: LawService) {}
 
-    @Get('/eligibleTerrotory')
+    @Get('/eligibleTerritory')
     @ApiOkResponse({ type: EligibleTerritoryDto })
     async getEligibleTerritory() {
         return {
