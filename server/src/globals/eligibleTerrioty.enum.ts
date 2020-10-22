@@ -1,7 +1,7 @@
 export enum EligibleTerritory {
     UK = "United Kingdom",
     AG="Anguilla",
-    MS="Montserrat"
+    MS="Montserrat",
     GB = "Gibraltar",
     DK = "Dhekelia",
     BM = "Bermuda",
