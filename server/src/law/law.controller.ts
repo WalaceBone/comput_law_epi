@@ -47,48 +47,43 @@ export class LawController {
         if (user.rules.length === 0) {
             return {message: answerMessageTest.OK};
         }
-        if (isOverseasTerritory) {
-            console.log("yes");
-        } else if (!isOverseasTerritory) {
-            console.log("no");
-            if (this.lawService.isRulesActivated(user.rules, "1") && data.isAdopt === false) {
+        if (this.lawService.isRulesActivated(user.rules, "1") && data.isAdopt === false) {
+            if (data.isParentBritishNationality === true || data.isParentLiveBritishTerritory === true) {
+                return {message: answerMessageTest.OK + "1"};
+            }
+        }
+        if (this.lawService.isRulesActivated(user.rules, "1A") && data.isAdopt === false) {
+            if (data.isParentMemberArmedForces === true && await this.lawService.isBornAfter(data.birthDate, "2009") === true) {
+                return {message: answerMessageTest.OK + "1A"};
+            }
+        }
+        if (this.lawService.isRulesActivated(user.rules, "2") && data.isAdopt === false) {
+            if (data.isParentLiveBritishTerritory === true && await this.lawService.isBornAfter(data.birthDate, "2009") === true) {
+                return {message: answerMessageTest.OK + "2"};
+            } else if (data.isParentBritishNationality === true && await this.lawService.isBornAfter(data.birthDate, "2009") === true) {
+                return {message: answerMessageTest.OK + "2"};
+            }
+        }
+        if (this.lawService.isRulesActivated(user.rules, "3") && data.isAdopt === false) {
+            if (await this.lawService.isMajor(data.birthDate) === false && data.isParentBritishNationality === false 
+            && data.isParentLiveBritishTerritory === false) {
+                return {message: "You can obtain British nationality if, while you are a minor, one of your parents becomes British citizens or settles in the United Kingdom"};
+            }
+        }
+        if (this.lawService.isRulesActivated(user.rules, "3A") && data.isAdopt === false) {
+            if (await this.lawService.isMajor(data.birthDate) === false && data.isParentMemberArmedForces === false) {
+                return {message: "You can obtain British nationality if, while you are a minor, one of your parents becomes a member of the armed forces"};
+            }
+        }
+        if (this.lawService.isRulesActivated(user.rules, "4") && data.isAdopt === false) {
+            if (data.isAbsentBritishTerritory === false) {
+                return {message: answerMessageTest.OK + "4"};
+            }
+        }
+        if (this.lawService.isRulesActivated(user.rules, "5") && data.isAdopt === true) {
+            if (this.lawService.isRulesActivated(user.rules, "5A")) {
                 if (data.isParentBritishNationality === true || data.isParentLiveBritishTerritory === true) {
-                    return {message: answerMessageTest.OK + "1"};
-                }
-            }
-            if (this.lawService.isRulesActivated(user.rules, "1A") && data.isAdopt === false) {
-                if (data.isParentMemberArmedForces === true && await this.lawService.isBornAfter(data.birthDate, "2009") === true) {
-                    return {message: answerMessageTest.OK + "1A"};
-                }
-            }
-            if (this.lawService.isRulesActivated(user.rules, "2") && data.isAdopt === false) {
-                if (data.isParentLiveBritishTerritory === true && await this.lawService.isBornAfter(data.birthDate, "2009") === true) {
-                    return {message: answerMessageTest.OK + "2"};
-                } else if (data.isParentBritishNationality === true && await this.lawService.isBornAfter(data.birthDate, "2009") === true) {
-                    return {message: answerMessageTest.OK + "2"};
-                }
-            }
-            if (this.lawService.isRulesActivated(user.rules, "3") && data.isAdopt === false) {
-               if (await this.lawService.isMajor(data.birthDate) === false && data.isParentBritishNationality === false 
-               && data.isParentLiveBritishTerritory === false) {
-                   return {message: "You can obtain British nationality if, while you are a minor, one of your parents becomes British citizens or settles in the United Kingdom"};
-               }
-            }
-            if (this.lawService.isRulesActivated(user.rules, "3A") && data.isAdopt === false) {
-                if (await this.lawService.isMajor(data.birthDate) === false && data.isParentMemberArmedForces === false) {
-                    return {message: "You can obtain British nationality if, while you are a minor, one of your parents becomes a member of the armed forces"};
-                }
-            }
-            if (this.lawService.isRulesActivated(user.rules, "4") && data.isAdopt === false) {
-                if (data.isAbsentBritishTerritory === false) {
-                    return {message: answerMessageTest.OK + "4"};
-                }
-            }
-            if (this.lawService.isRulesActivated(user.rules, "5") && data.isAdopt === true) {
-                if (this.lawService.isRulesActivated(user.rules, "5A")) {
-                    if (data.isParentBritishNationality === true || data.isParentLiveBritishTerritory === true) {
-                        return {message: answerMessageTest.OK + "5A"};
-                    }
+                    return {message: answerMessageTest.OK + "5A"};
                 }
             }
         }
