@@ -37,7 +37,7 @@ export class AuthController {
                 return this.usersService.model.create({
                     username: user.username,
                     password: hash,
-                    rules: ['1', '2', '3', '4', '5'],
+                    rules: ['1', '1A', '2', '3', '3A', '4', '5', '5A', '6', '7', '8', '9'],
                     isBirtish: undefined
                 }).then(user => {
                     return user;

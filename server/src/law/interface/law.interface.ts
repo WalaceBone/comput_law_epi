@@ -23,6 +23,16 @@ export class lawForm {
     isParentMemberArmedForces: boolean;
 
     @ApiProperty({
+        description: "True if he leave the territory more than 90 days each years, false otherwise"
+    })
+    isAbsentBritishTerritory: boolean;
+
+    @ApiProperty({
+        description: "True if he was adopted, false otherwise"
+    })
+    isAdopt: boolean;
+
+    @ApiProperty({
         description: "The territory where is born"
     })
     bornPlace: string;
