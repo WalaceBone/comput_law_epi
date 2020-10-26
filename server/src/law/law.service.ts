@@ -1,4 +1,9 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class LawService {}
+export class LawService {
+
+    constructor() {}
+
+    async 
+}

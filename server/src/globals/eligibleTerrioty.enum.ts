@@ -1,7 +1,7 @@
 export enum EligibleTerritory {
     UK = "United Kingdom",
-    AG="Anguilla",
-    MS="Montserrat",
+    AG = "Anguilla",
+    MS = "Montserrat",
     GB = "Gibraltar",
     DK = "Dhekelia",
     BM = "Bermuda",
@@ -15,5 +15,7 @@ export enum EligibleTerritory {
     CC = "Caicos islands",
     CM = "Cayman islands",
     PC = "Pitcarin islands",
-    BV = "British Virign islands"
+    BV = "British Virign islands",
+    IO = "British indian Ocean",
+    BA = "British Antartic"
 }
