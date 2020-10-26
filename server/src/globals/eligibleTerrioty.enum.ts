@@ -17,5 +17,5 @@ export enum EligibleTerritory {
     PC = "Pitcarin islands",
     BV = "British Virign islands",
     IO = "British indian Ocean",
-    BA = "British Antartic"
+    BA = "British Antarctic"
 }

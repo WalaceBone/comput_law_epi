@@ -23,6 +23,11 @@ export class lawForm {
     isParentMemberArmedForces: boolean;
 
     @ApiProperty({
+        description: "The territory where is born"
+    })
+    bornPlace: string;
+
+    @ApiProperty({
         description: "Date of born"
     })
     birthDate: string;

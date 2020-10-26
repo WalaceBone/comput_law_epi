@@ -42,17 +42,25 @@ export class LawController {
             }).catch(() => {
                 throw new NotFoundException("Cannot find username with name " + request.user.username);
             });
+        const isOverseasTerritory = await this.lawService.isOverseasTerritories(data.bornPlace.toLowerCase());
+        console.log(isOverseasTerritory);
         if (user.rules.length === 0) {
             return {message: answerMessageTest.OK};
         }
-        if (data.bornBritishTerritory === false) {
-            return {message: answerMessageTest.KO + " if you are not born in uk or eligible territory."};
-        }
-        if (data.isParentBritishNationality === true || data.isParentLiveBritishTerritory === true) {
-            return {message: answerMessageTest.OK};
-        }
-        if (data.isParentMemberArmedForces === true) {
-            return {message: answerMessageTest.OK};
+        if (isOverseasTerritory) {
+            console.log("yes");
+        } else if (!isOverseasTerritory) {
+            console.log("no");
+            if (this.lawService.isRulesActivated(user.rules, "1")) {
+                if (data.isParentBritishNationality || data.isParentLiveBritishTerritory) {
+                    return {message: answerMessageTest.OK};
+                }
+            }
+            if (this.lawService.isRulesActivated(user.rules, "1A")) {
+                if (data.isParentMemberArmedForces === true && await this.lawService.isBornAfter(data.birthDate, "2009") === true) {
+                    return {message: answerMessageTest.OK};
+                }
+            }
         }
         return {message: answerMessageTest.KO};
     }
