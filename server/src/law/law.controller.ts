@@ -43,7 +43,6 @@ export class LawController {
                 throw new NotFoundException("Cannot find username with name " + request.user.username);
             });
         const isOverseasTerritory = await this.lawService.isOverseasTerritories(data.bornPlace.toLowerCase());
-        console.log(isOverseasTerritory);
         if (user.rules.length === 0) {
             return {message: answerMessageTest.OK};
         }
@@ -66,8 +65,11 @@ export class LawController {
         }
         if (this.lawService.isRulesActivated(user.rules, "3") && data.isAdopt === false) {
             if (await this.lawService.isMajor(data.birthDate) === false && data.isParentBritishNationality === false 
-            && data.isParentLiveBritishTerritory === false) {
+            && data.isParentLiveBritishTerritory === false && await this.lawService.isOverseasTerritories(data.bornPlace) === false) {
                 return {message: "You can obtain British nationality if, while you are a minor, one of your parents becomes British citizens or settles in the United Kingdom"};
+            } else if (await this.lawService.isMajor(data.birthDate) === false && data.isParentBritishNationality === false 
+            && data.isParentLiveBritishTerritory === false && await this.lawService.isOverseasTerritories(data.bornPlace) === true) {
+                return {message: "You can obtain British nationality if, while you are minor, one of your parents becomes citizens or settles in a overseas territories"};
             }
         }
         if (this.lawService.isRulesActivated(user.rules, "3A") && data.isAdopt === false) {
