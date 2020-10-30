@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/core/api/api.service';
 
 @Component({
   selector: 'app-rules',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RulesComponent implements OnInit {
 
-  constructor() { }
+  public reply: any;
 
-  ngOnInit(): void {
+  constructor(private api: ApiService) { }
+
+  async ngOnInit(): Promise<void> {
+    const resp = await this.api.getRules().subscribe(
+      (response) => {
+        this.reply = response;
+      }, (error) => {
+        this.reply = error;
+      }
+    );
   }
 
 }

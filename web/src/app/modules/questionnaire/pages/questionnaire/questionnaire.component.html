@@ -1,7 +1,7 @@
 <button type="button" class="btn btn-return" [routerLink]="'/menu'">
   <i class="fas fa-arrow-left"></i>
 </button>
-<div class="maint container">
+<div class="main container">
   <p class="title">Questionnaire</p>
   <div class="body">
     <app-qcm-form-where-born *ngIf="step === 0" (whereBornEvent)="whereBorn($event)"></app-qcm-form-where-born>

@@ -85,6 +85,13 @@ export class ApiService {
       .pipe(catchError(ApiService.handleError));
   }
 
+  public getRules() {
+    return this.http
+      .get(`${API_URL}/law/BritishNationalityAct`, {headers: this.getHeaders() })
+      .pipe(map(res => res))
+      .pipe(catchError(ApiService.handleError));
+  }
+
   private getHeaders(): { Authorization: string } {
     return { Authorization: `Bearer ${this.session.accessToken}` };
   }
