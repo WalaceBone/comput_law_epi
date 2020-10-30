@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-qcm-form-british-nationality',
@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QcmFormBritishNationalityComponent implements OnInit {
 
+  @Output() isBritishNationalityEvent = new EventEmitter<boolean>();
+
+  public reply: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  selected(event) {
+    this.reply = event;
+  }
+
+  submit() {
+    if (this.reply === undefined) {
+      return;
+    }
+    this.isBritishNationalityEvent.emit(this.reply);
   }
 
 }

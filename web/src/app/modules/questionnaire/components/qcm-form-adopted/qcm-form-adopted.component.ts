@@ -9,7 +9,7 @@ export class QcmFormAdoptedComponent implements OnInit {
 
   @Output() isAdoptedEvent = new EventEmitter<boolean>();
 
-  reply: boolean;
+  public reply: boolean;
 
   constructor() { }
 

@@ -38,4 +38,10 @@ export class QuestionnaireComponent implements OnInit {
     this.step++;
   }
 
+  isBritish(item: boolean) {
+    console.log('is parent have birtish nationality : [' + item + ']');
+    this.addQuestionnairePayload.isParentBritishNationality = item;
+    this.step++;
+  }
+
 }
