@@ -21,7 +21,9 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   whereBorn(item: string) {
-    console.log(item)
+    console.log('where born receive : [' + item + ']');
+    this.addQuestionnairePayload.bornPlace = item;
+    this.step++;
   }
 
 }

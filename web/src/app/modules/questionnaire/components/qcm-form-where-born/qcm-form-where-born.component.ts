@@ -23,12 +23,12 @@ export class QcmFormWhereBornComponent implements OnInit {
     });
   }
 
-  public onChange(item: string) {
-    this.selectedTerritory = item;
+  public onChange(event) {
+    this.selectedTerritory = event.target.value;
   }
 
   submit() {
-    this.whereBornEvent.emit('undefined');
+    this.whereBornEvent.emit(this.selectedTerritory);
   }
 
 }
