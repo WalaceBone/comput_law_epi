@@ -3,4 +3,8 @@
 </button>
 <div class="maint container">
   <p class="title">Questionnaire</p>
+  <div class="body">
+    <app-qcm-form-where-born *ngIf="step === 0" (whereBornEvent)="whereBorn($event)"></app-qcm-form-where-born>
+    <app-qcm-form-when-born *ngIf="step === 1"></app-qcm-form-when-born>
+  </div>
 </div>

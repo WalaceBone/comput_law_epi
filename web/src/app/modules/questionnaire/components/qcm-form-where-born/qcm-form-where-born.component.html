@@ -1,1 +1,13 @@
-<p>qcm-form-where-born works!</p>
+<div class="main">
+  <p class="question">Where are you born ?</p>
+  <div class="selector">
+    <select (change)="onChange($event)">
+      <option *ngFor="let v of eligibleTerritoryList" [value]="v">{{v}}</option>
+    </select>
+  </div>
+  <div class="button">
+    <button type="button" class="btn btn-darck button-submit">
+      <i class="fas fa-arrow-circle-right"></i>
+    </button>
+  </div>
+</div>

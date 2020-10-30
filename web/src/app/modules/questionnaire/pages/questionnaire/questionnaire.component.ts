@@ -20,4 +20,8 @@ export class QuestionnaireComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  whereBorn(item: string) {
+    console.log(item)
+  }
+
 }

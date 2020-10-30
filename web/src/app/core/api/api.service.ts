@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-import { SignInResponse } from '../../models/server-response';
+import { SignInResponse, BritishTerritoryResponse } from '../../models/server-response';
 import { User } from '../../models/user.model';
 import { SessionService } from '../session/session.service';
 
@@ -66,6 +66,15 @@ export class ApiService {
     return this.http
       .delete(`${API_URL}/user/me`, { headers: this.getHeaders() })
       .pipe(map((res) => res))
+      .pipe(catchError(ApiService.handleError));
+  }
+
+  /* LAW API CALL */
+
+  public getTerritoryList(): Observable<BritishTerritoryResponse> {
+    return this.http
+      .get(`${API_URL}/law/eligibleTerritory`, {headers: this.getHeaders() })
+      .pipe(map(res => res as BritishTerritoryResponse))
       .pipe(catchError(ApiService.handleError));
   }
 
