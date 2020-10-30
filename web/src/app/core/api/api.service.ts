@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-import { SignInResponse, BritishTerritoryResponse } from '../../models/server-response';
+import { SignInResponse, BritishTerritoryResponse, MessageReply } from '../../models/server-response';
 import { User } from '../../models/user.model';
 import { SessionService } from '../session/session.service';
 
@@ -75,6 +75,13 @@ export class ApiService {
     return this.http
       .get(`${API_URL}/law/eligibleTerritory`, {headers: this.getHeaders() })
       .pipe(map(res => res as BritishTerritoryResponse))
+      .pipe(catchError(ApiService.handleError));
+  }
+
+  public sendBritishCitizenshipTest(payload: object): Observable<MessageReply> {
+    return this.http
+      .post(`${API_URL}/law/britishCitizenTest`, {headers: this.getHeaders() })
+      .pipe(map(res => res as MessageReply))
       .pipe(catchError(ApiService.handleError));
   }
 

@@ -11,6 +11,6 @@
     <app-qcm-form-live-uk *ngIf="step === 4" (isLiveInUkEvent)="isLiveInUk($event)"></app-qcm-form-live-uk>
     <app-qcm-form-armed-force *ngIf="step === 5" (isMemberArmedForceEvent)="isMemberArmedForce($event)"></app-qcm-form-armed-force>
     <app-qcm-form-leave-contry *ngIf="step === 6" (isLeaveContryEvent)="isLeaveCountry($event)"></app-qcm-form-leave-contry>
-    <app-qcm-form-conclusion *ngIf="step === 7"></app-qcm-form-conclusion>
+    <app-qcm-form-conclusion *ngIf="step === 7" [qcmPayload]="addQuestionnairePayload"></app-qcm-form-conclusion>
   </div>
 </div>

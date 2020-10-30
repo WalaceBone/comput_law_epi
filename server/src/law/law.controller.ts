@@ -42,7 +42,7 @@ export class LawController {
             }).catch(() => {
                 throw new NotFoundException("Cannot find username with name " + request.user.username);
             });
-        const isOverseasTerritory = await this.lawService.isOverseasTerritories(data.bornPlace.toLowerCase());
+        const isOverseasTerritory = await this.lawService.isOverseasTerritories(data.bornPlace);
         if (user.rules.length === 0) {
             return {message: answerMessageTest.OK};
         }

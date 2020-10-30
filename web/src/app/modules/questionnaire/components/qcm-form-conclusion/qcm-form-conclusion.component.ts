@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { QuestionnaireFormPayload } from 'src/app/models/questionnaire-form-model';
+import { ApiService } from 'src/app/core/api/api.service';
 
 @Component({
   selector: 'app-qcm-form-conclusion',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QcmFormConclusionComponent implements OnInit {
 
-  constructor() { }
+  @Input() qcmPayload: QuestionnaireFormPayload;
 
-  ngOnInit(): void {
+  public reply: string;
+
+  constructor(private api: ApiService) { }
+
+  async ngOnInit(): Promise<void> {
+    const resp = await this.api.sendBritishCitizenshipTest(this.qcmPayload).subscribe(
+      (response) => {
+        this.reply = response.message;
+      }, (error) => {
+        this.reply = error;
+      }
+    );
   }
 
 }

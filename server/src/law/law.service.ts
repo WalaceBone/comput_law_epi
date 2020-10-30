@@ -8,14 +8,14 @@ export class LawService {
     constructor() {}
 
     async isOverseasTerritories(place: string) {
-        if (place === EligibleTerritory.AG.toLowerCase() || place === EligibleTerritory.AS.toLowerCase() ||
-            place === EligibleTerritory.BM.toLowerCase() || place === EligibleTerritory.BA.toLowerCase() ||
-            place === EligibleTerritory.IO.toLowerCase() || place === EligibleTerritory.BV.toLowerCase() ||
-            place === EligibleTerritory.CM.toLowerCase() || place === EligibleTerritory.FK.toLowerCase() ||
-            place === EligibleTerritory.GB.toLowerCase() || place === EligibleTerritory.MS.toLowerCase() ||
-            place === EligibleTerritory.PC.toLowerCase() || place === EligibleTerritory.HL.toLowerCase() ||
-            place === EligibleTerritory.TC.toLowerCase() || place === EligibleTerritory.TK.toLowerCase() ||
-            place === EligibleTerritory.CC.toLowerCase()) {
+        if (place === EligibleTerritory.AG || place === EligibleTerritory.AS ||
+            place === EligibleTerritory.BM || place === EligibleTerritory.BA ||
+            place === EligibleTerritory.IO || place === EligibleTerritory.BV ||
+            place === EligibleTerritory.CM || place === EligibleTerritory.FK ||
+            place === EligibleTerritory.GB || place === EligibleTerritory.MS ||
+            place === EligibleTerritory.PC || place === EligibleTerritory.HL ||
+            place === EligibleTerritory.TC || place === EligibleTerritory.TK ||
+            place === EligibleTerritory.CC) {
                 return true;
             } else {
                 return false;

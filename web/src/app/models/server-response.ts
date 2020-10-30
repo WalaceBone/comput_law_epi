@@ -6,3 +6,7 @@ export interface SignInResponse {
 export interface BritishTerritoryResponse {
   territory: string[];
 }
+
+export interface MessageReply {
+  message: string;
+}
