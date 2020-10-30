@@ -56,4 +56,10 @@ export class QuestionnaireComponent implements OnInit {
     this.step++;
   }
 
+  isLeaveCountry(item: boolean) {
+    console.log('is leave country for more than 90 days : [' + item + ']');
+    this.addQuestionnairePayload.isAbsentBritishTerritory = item;
+    this.step++;
+  }
+
 }

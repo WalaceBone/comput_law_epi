@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-qcm-form-leave-contry',
@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QcmFormLeaveContryComponent implements OnInit {
 
+  @Output() isLeaveContryEvent = new EventEmitter<boolean>();
+
+  public reply: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  selected(event) {
+    this.reply = event;
+  }
+
+  submit() {
+    if (this.reply === undefined) {
+      return;
+    }
+    this.isLeaveContryEvent.emit(this.reply);
   }
 
 }
