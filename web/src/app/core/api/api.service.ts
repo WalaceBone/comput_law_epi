@@ -80,7 +80,7 @@ export class ApiService {
 
   public sendBritishCitizenshipTest(payload: object): Observable<MessageReply> {
     return this.http
-      .post(`${API_URL}/law/britishCitizenTest`, {headers: this.getHeaders() })
+      .post(`${API_URL}/law/britishCitizenTest`, payload, {headers: this.getHeaders() })
       .pipe(map(res => res as MessageReply))
       .pipe(catchError(ApiService.handleError));
   }
