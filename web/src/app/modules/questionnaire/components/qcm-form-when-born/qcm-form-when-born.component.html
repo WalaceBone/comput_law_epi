@@ -1,1 +1,26 @@
-<p>qcm-form-when-born works!</p>
+<div class="main">
+  <p class="question">When are you Born ?</p>
+  <form [formGroup]="frm" (submit)="submit()">
+    <div class="input">
+      <input
+        type="text"
+        class="when-born-input"
+        [ngClass]="{ 'is-invalid': submitted && frm.controls.whenBorn.errors }"
+        formControlName="whenBorn"
+        id="whenBorn"
+        placeholder="day/month/years"
+      />
+      <div
+          *ngIf="submitted && frm.controls.whenBorn.errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="frm.controls.whenBorn.errors.required">
+            Birth date is required.
+          </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-darck button-submit">
+      <i class="fas fa-arrow-circle-right"></i>
+    </button>
+  </form>
+</div>

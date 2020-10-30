@@ -10,14 +10,20 @@ import { QcmFormBritishNationalityComponent } from './components/qcm-form-britis
 import { QcmFormLiveUkComponent } from './components/qcm-form-live-uk/qcm-form-live-uk.component';
 import { QcmFormLeaveContryComponent } from './components/qcm-form-leave-contry/qcm-form-leave-contry.component';
 import { QcmFormConclusionComponent } from './components/qcm-form-conclusion/qcm-form-conclusion.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [QuestionnaireComponent, QcmFormWhereBornComponent, QcmFormWhenBornComponent, QcmFormAdoptedComponent, QcmFormArmedForceComponent, QcmFormBritishNationalityComponent, QcmFormLiveUkComponent, QcmFormLeaveContryComponent, QcmFormConclusionComponent],
+  declarations: [QuestionnaireComponent, QcmFormWhereBornComponent,
+                QcmFormWhenBornComponent, QcmFormAdoptedComponent,
+                QcmFormArmedForceComponent, QcmFormBritishNationalityComponent,
+                QcmFormLiveUkComponent, QcmFormLeaveContryComponent, QcmFormConclusionComponent],
   imports: [
     CommonModule,
-    QuestionnaireRoutingModule
+    QuestionnaireRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class QuestionnaireModule { }

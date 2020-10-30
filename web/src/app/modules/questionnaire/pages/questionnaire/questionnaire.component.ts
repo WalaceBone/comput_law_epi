@@ -26,4 +26,10 @@ export class QuestionnaireComponent implements OnInit {
     this.step++;
   }
 
+  whenBorn(item: string) {
+    console.log('when born receive : [' + item + ']');
+    this.addQuestionnairePayload.birthDate = item;
+    this.step++;
+  }
+
 }
