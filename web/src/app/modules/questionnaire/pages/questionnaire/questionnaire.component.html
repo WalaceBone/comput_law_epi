@@ -6,6 +6,7 @@
   <div class="body">
     <app-qcm-form-where-born *ngIf="step === 0" (whereBornEvent)="whereBorn($event)"></app-qcm-form-where-born>
     <app-qcm-form-when-born *ngIf="step === 1" (whenBornEvent)="whenBorn($event)"></app-qcm-form-when-born>
-    <app-qcm-form-adopted *ngIf="step === 2"></app-qcm-form-adopted>
+    <app-qcm-form-adopted *ngIf="step === 2" (isAdoptedEvent)="isAdopted($event)"></app-qcm-form-adopted>
+    <app-qcm-form-british-nationality *ngIf="step === 3"></app-qcm-form-british-nationality>
   </div>
 </div>

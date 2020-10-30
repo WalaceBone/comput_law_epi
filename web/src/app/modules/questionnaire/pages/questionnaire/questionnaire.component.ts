@@ -32,4 +32,10 @@ export class QuestionnaireComponent implements OnInit {
     this.step++;
   }
 
+  isAdopted(item: boolean) {
+    console.log('is adopted receive : [' + item + ']');
+    this.addQuestionnairePayload.isAdopt = item;
+    this.step++;
+  }
+
 }
