@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-qcm-form-armed-force',
@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QcmFormArmedForceComponent implements OnInit {
 
+  @Output() isMemberArmedForceEvent = new EventEmitter<boolean>();
+
+  public reply: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  selected(event) {
+    this.reply = event;
+  }
+
+  submit() {
+    if (this.reply === undefined) {
+      return;
+    }
+    this.isMemberArmedForceEvent.emit(this.reply);
   }
 
 }

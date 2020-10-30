@@ -50,4 +50,10 @@ export class QuestionnaireComponent implements OnInit {
     this.step++;
   }
 
+  isMemberArmedForce(item: boolean) {
+    console.log('is parent member of armed force : [' + item + ']');
+    this.addQuestionnairePayload.isParentMemberArmedForces = item;
+    this.step++;
+  }
+
 }
