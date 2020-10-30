@@ -44,4 +44,10 @@ export class QuestionnaireComponent implements OnInit {
     this.step++;
   }
 
+  isLiveInUk(item: boolean) {
+    console.log('is parent live in british territory : [' + item + ']');
+    this.addQuestionnairePayload.isParentLiveBritishTerritory = item;
+    this.step++;
+  }
+
 }

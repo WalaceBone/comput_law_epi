@@ -8,6 +8,7 @@
     <app-qcm-form-when-born *ngIf="step === 1" (whenBornEvent)="whenBorn($event)"></app-qcm-form-when-born>
     <app-qcm-form-adopted *ngIf="step === 2" (isAdoptedEvent)="isAdopted($event)"></app-qcm-form-adopted>
     <app-qcm-form-british-nationality *ngIf="step === 3" (isBritishNationalityEvent)="isBritish($event)"></app-qcm-form-british-nationality>
-    <app-qcm-form-live-uk *ngIf="step === 4"></app-qcm-form-live-uk>
+    <app-qcm-form-live-uk *ngIf="step === 4" (isLiveInUkEvent)="isLiveInUk($event)"></app-qcm-form-live-uk>
+    <app-qcm-form-armed-force *ngIf="step === 5"></app-qcm-form-armed-force>
   </div>
 </div>
