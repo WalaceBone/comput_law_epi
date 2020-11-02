@@ -16,6 +16,7 @@ export class QcmFormConclusionComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   async ngOnInit(): Promise<void> {
+    this.qcmPayload.bornBritishTerritory = true;
     const resp = await this.api.sendBritishCitizenshipTest(this.qcmPayload).subscribe(
       (response) => {
         this.reply = response.message;

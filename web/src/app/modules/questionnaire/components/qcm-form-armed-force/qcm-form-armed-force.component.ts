@@ -16,7 +16,7 @@ export class QcmFormArmedForceComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  selected(event) {
+  selected(event: boolean) {
     this.reply = event;
   }
 
