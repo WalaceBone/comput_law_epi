@@ -23,6 +23,7 @@ import { RulesModule } from './modules/rules/rules.module';
 import { QuestionnaireModule } from './modules/questionnaire/questionnaire.module';
 import { ProfileModule } from './modules/profile/profile.module';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -35,7 +36,7 @@ import { ProfileModule } from './modules/profile/profile.module';
     HttpClientModule,
     ReactiveFormsModule,
     NgbModule,
-    NgMultiSelectDropDownModule,
+    NgMultiSelectDropDownModule.forRoot(),
     AppRoutingModule,
     AuthModule,
     MenuModule,

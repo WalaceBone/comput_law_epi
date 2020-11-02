@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/core/api/api.service';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { Router } from '@angular/router';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
 @Component({
   selector: 'app-profile',

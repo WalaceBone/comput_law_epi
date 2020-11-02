@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-import { SignInResponse, BritishTerritoryResponse, MessageReply } from '../../models/server-response';
+import { SignInResponse, BritishTerritoryResponse, MessageReply, AvailableRulesResponse } from '../../models/server-response';
 import { User } from '../../models/user.model';
 import { SessionService } from '../session/session.service';
 
@@ -62,10 +62,10 @@ export class ApiService {
       .pipe(catchError(ApiService.handleError));
   }
 
-  public getActivatedRules() {
+  public getActivatedRules(): Observable<AvailableRulesResponse> {
     return this.http
       .get(`${API_URL}/user/activatedRules`, { headers: this.getHeaders() })
-      .pipe(map((res) => res))
+      .pipe(map((res) => res as AvailableRulesResponse))
       .pipe(catchError(ApiService.handleError));
   }
 
@@ -106,10 +106,10 @@ export class ApiService {
       .pipe(catchError(ApiService.handleError));
   }
 
-  public getAvailableRules() {
+  public getAvailableRules(): Observable<AvailableRulesResponse> {
     return this.http
-      .get(`${API_URL}/law/BritishNationalityAct`, {headers: this.getHeaders() })
-      .pipe(map(res => res))
+      .get(`${API_URL}/law/availableRules`, {headers: this.getHeaders() })
+      .pipe(map(res => res as AvailableRulesResponse))
       .pipe(catchError(ApiService.handleError));
   }
 
