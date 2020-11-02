@@ -1,7 +1,7 @@
 import { Injectable, ConflictException} from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
 import {Model} from 'mongoose';
-import {User, UserForm} from './interface/users.interface';
+import {User, UserForm, rulesForm} from './interface/users.interface';
 import * as jwt from 'jsonwebtoken';
 import * as bcrypt from 'bcryptjs';
 
@@ -26,6 +26,16 @@ export class UsersService {
         const cookies: string[] = cookie.split('; ');
         const authToken = cookies.find(cookie => cookie.startsWith('accessToken')).split('=')[1];
         return jwt.verify(authToken, 'secret') as JwtPayload;
+    }
+
+    async editRulesUser(user: any, rulesData: rulesForm) {
+        return this._model.findByIdAndUpdate(user.id, {
+            rules: rulesData.rules
+        }, {
+            new: true
+        }).then(newUserRules => {
+            return newUserRules.rules;
+        });
     }
 
     async editUser(user: any, userData: UserForm) {

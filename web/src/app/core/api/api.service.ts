@@ -55,6 +55,20 @@ export class ApiService {
       .pipe(catchError(ApiService.handleError));
   }
 
+  public patchProfileRules(payload: [string]) {
+    return this.http
+      .patch(`${API_URL}/user/modifiedRules`, payload, { headers: this.getHeaders() })
+      .pipe(map((res) => res))
+      .pipe(catchError(ApiService.handleError));
+  }
+
+  public getActivatedRules() {
+    return this.http
+      .get(`${API_URL}/user/activatedRules`, { headers: this.getHeaders() })
+      .pipe(map((res) => res))
+      .pipe(catchError(ApiService.handleError));
+  }
+
   public modifyProfile(payload: object): Observable<User> {
     return this.http
       .patch(`${API_URL}/user/me`, payload, { headers: this.getHeaders() })
@@ -86,6 +100,13 @@ export class ApiService {
   }
 
   public getRules() {
+    return this.http
+      .get(`${API_URL}/law/BritishNationalityAct`, {headers: this.getHeaders() })
+      .pipe(map(res => res))
+      .pipe(catchError(ApiService.handleError));
+  }
+
+  public getAvailableRules() {
     return this.http
       .get(`${API_URL}/law/BritishNationalityAct`, {headers: this.getHeaders() })
       .pipe(map(res => res))

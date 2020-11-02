@@ -10,6 +10,8 @@ import { EligibleTerritory } from 'src/globals/eligibleTerrioty.enum';
 import { answerMessageTest } from 'src/globals/answerMessageTest.enum';
 import { UsersService } from 'src/users/users.service';
 import * as MOCKED_RESPONSE_TS from '../rules/britishNationalityLawRules.json';
+import RulesDto from 'src/dto/rules.dto';
+import { Rules } from 'src/globals/rules.enum';
 
 @ApiTags('law')
 @Controller('law')
@@ -22,6 +24,14 @@ export class LawController {
     async getEligibleTerritory() {
         return {
             territory: Object.keys(EligibleTerritory).map(key => EligibleTerritory[key as any])
+        }
+    }
+
+    @Get('/availableRules')
+    @ApiOkResponse({ type: RulesDto })
+    async getAvailableRules() {
+        return {
+            rules: Object.keys(Rules).map(key => Rules[key as any])
         }
     }
 

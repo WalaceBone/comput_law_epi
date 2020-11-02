@@ -44,3 +44,11 @@ export class UserForm {
     })
     password: string;
 }
+
+export class rulesForm {
+
+    @ApiProperty({
+        description: 'The rules we want to activate'
+    })
+    rules: [string];
+}
